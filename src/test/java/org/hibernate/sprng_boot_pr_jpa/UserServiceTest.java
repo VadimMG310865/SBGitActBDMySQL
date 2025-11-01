@@ -14,7 +14,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-//@ActiveProfiles("test")
+@ActiveProfiles("test")
 @Transactional
 class UserServiceTest {
 
