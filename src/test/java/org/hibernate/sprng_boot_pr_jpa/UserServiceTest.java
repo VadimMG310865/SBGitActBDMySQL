@@ -18,25 +18,25 @@ import static org.junit.jupiter.api.Assertions.*;
 // @Transactional
 class UserServiceTest {
 
-//    @Autowired
-//    private UserService userService;
-//
-//    @Test
-//    void testSaveUser() {
-//        // Arrange
-//        String userName = "User1";
-//        int balance = 100;
-//
-//        // Act
-//        Users savedUser = userService.saveUser(userName, balance);
-//        var users = userService.getUserById(savedUser.getId());
-//
-//        // Assert
-//        assertNotNull(savedUser);
-//        assertNotNull(savedUser.getId());
-//        assertEquals(userName, savedUser.getName());
-//        assertEquals(balance, savedUser.getBalanse());
-//    }
+    @Autowired
+    private UserService userService;
+
+    @Test
+    void testSaveUser() {
+        // Arrange
+        String userName = "User1";
+        int balance = 100;
+
+        // Act
+        Users savedUser = userService.saveUser(userName, balance);
+        var users = userService.getUserById(savedUser.getId());
+
+        // Assert
+        assertNotNull(savedUser);
+        assertNotNull(savedUser.getId());
+        assertEquals(userName, savedUser.getName());
+        assertEquals(balance, savedUser.getBalanse());
+    }
 //
 //    @Test
 //    void testSaveUserObject() {
