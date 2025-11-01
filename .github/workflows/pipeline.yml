@@ -37,14 +37,22 @@ jobs:
         run: mvn clean install
         #run: mvn -B clean install
 
-
-      - name: Set up MySQL
-        run: |
-          # Команды для установки и запуска MySQL на локальной машине (не в Docker)
-          # Для продакшена и тестирования на сервере:
-          sudo apt-get update
-          sudo apt-get install -y mysql-server
-          sudo systemctl start mysql  
-
-      - name: Run tests
+      - name: Test with MySQL # Запускаем тесты, которые подключаются к сервису MySQL
         run: mvn test
+        env:
+          # Передаем параметры подключения к базе данных в переменные окружения
+          SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/mvc_hibernate
+          SPRING_DATASOURCE_USERNAME: root
+          SPRING_DATASOURCE_PASSWORD: Vad310865!
+
+
+#      - name: Set up MySQL
+#        run: |
+#          # Команды для установки и запуска MySQL на локальной машине (не в Docker)
+#          # Для продакшена и тестирования на сервере:
+#          sudo apt-get update
+#          sudo apt-get install -y mysql-server
+#          sudo systemctl start mysql
+#
+#      - name: Run tests
+#        run: mvn test
