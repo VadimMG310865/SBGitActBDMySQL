@@ -33,17 +33,17 @@ jobs:
           cache: 'maven'
           distribution: 'temurin'
 
-      - name: Build with Maven
-        run: mvn clean install
-        #run: mvn -B clean install
-
       - name: Set up MySQL
         run: |
           # Команды для установки и запуска MySQL на локальной машине (не в Docker)
           # Для продакшена и тестирования на сервере:
           sudo apt-get update
           sudo apt-get install -y mysql-server
-          sudo systemctl start mysql
+          sudo systemctl start mysql     
+
+      - name: Build with Maven
+        run: mvn clean install
+        #run: mvn -B clean install
 
       - name: Test with MySQL # Запускаем тесты, которые подключаются к сервису MySQL
         run: mvn test
