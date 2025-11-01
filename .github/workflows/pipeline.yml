@@ -7,6 +7,21 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    services:
+      # Запускаем MySQL как сервис, который будет доступен для тестов
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: Vad310865!
+          MYSQL_DATABASE: mvc_hibernate
+        ports:
+          - 3306
+        options: >-
+          --health-cmd "mysqladmin ping"
+          --health-interval "10s"
+          --health-timeout "5s"
+          --health-retries 3
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
