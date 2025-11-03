@@ -1,4 +1,4 @@
-name: SBGitActBDMySQL
+name: SBGitActDBMySQL
 
 on:
   push:
